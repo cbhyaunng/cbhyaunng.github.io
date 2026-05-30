@@ -1,0 +1,623 @@
+/*
+    style.css 수정 팁
+    - color: 글자색을 바꿉니다.
+    - background: 배경색이나 배경 이미지를 바꿉니다.
+    - margin: 요소 바깥쪽 여백입니다.
+    - padding: 요소 안쪽 여백입니다.
+    - border: 테두리입니다.
+    - border-radius: 모서리를 둥글게 만듭니다.
+    - font-size: 글자 크기입니다.
+    - font-weight: 글자 굵기입니다. 숫자가 클수록 굵습니다.
+    - display: 요소를 어떤 방식으로 배치할지 정합니다.
+    - grid-template-columns: grid에서 가로 칸 개수와 너비를 정합니다.
+    - gap: 요소 사이 간격입니다.
+    - max-width: 너무 넓어지지 않게 최대 너비를 제한합니다.
+    - min-height: 최소 높이입니다.
+    - rem: 기본 글자 크기를 기준으로 한 단위입니다. 1rem은 보통 16px입니다.
+*/
+
+/* 모든 요소의 기본 여백을 없애고, 크기 계산을 편하게 만듭니다. */
+* {
+    box-sizing: border-box; /* width/height에 padding과 border까지 포함해서 계산합니다. */
+    margin: 0; /* 브라우저가 기본으로 주는 바깥 여백을 없앱니다. */
+    padding: 0; /* 브라우저가 기본으로 주는 안쪽 여백을 없앱니다. */
+}
+
+/* 페이지 안의 링크로 이동할 때 부드럽게 스크롤되게 합니다. */
+html {
+    scroll-behavior: smooth; /* #intro 같은 위치로 이동할 때 부드럽게 움직입니다. */
+}
+
+/* 페이지 전체의 기본 글자, 배경, 최소 너비를 정합니다. */
+body {
+    min-width: 320px; /* 화면이 너무 작아져도 최소 320px 너비는 유지합니다. */
+    color: #17201a; /* 기본 글자색입니다. */
+    background: #f6f4ee; /* 페이지 전체 배경색입니다. */
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif; /* 글꼴 순서입니다. 앞 글꼴이 없으면 다음 글꼴을 씁니다. */
+    line-height: 1.6; /* 줄 간격입니다. 숫자가 커질수록 줄 사이가 넓어집니다. */
+}
+
+/* 모든 링크의 기본 스타일을 정합니다. */
+a {
+    color: inherit; /* 링크가 부모 요소의 글자색을 그대로 따라가게 합니다. */
+    text-decoration: none; /* 링크 밑줄을 없앱니다. */
+}
+
+/* 모든 이미지가 칸을 넘치지 않게 합니다. */
+img {
+    display: block; /* 이미지 아래에 생기는 작은 빈 공간을 없앱니다. */
+    max-width: 100%; /* 이미지가 부모 요소보다 커지지 않게 합니다. */
+}
+
+/* 페이지 맨 위 헤더 영역입니다. */
+.site-header {
+    position: sticky; /* 스크롤해도 위쪽에 붙어 있게 합니다. */
+    top: 0; /* sticky가 붙을 위치를 화면 맨 위로 정합니다. */
+    z-index: 10; /* 다른 요소보다 위에 보이게 합니다. */
+    border-bottom: 1px solid #d9ded3; /* 헤더 아래쪽 경계선입니다. */
+    background: #fdfcf8; /* 헤더 배경색입니다. */
+}
+
+/* 헤더 안의 로고와 메뉴를 가로로 배치하는 영역입니다. */
+.header-inner {
+    display: flex; /* 안쪽 요소를 가로 방향으로 배치합니다. */
+    align-items: center; /* 세로 방향 가운데 정렬입니다. */
+    justify-content: space-between; /* 로고와 메뉴를 양쪽 끝으로 벌립니다. */
+    max-width: 1180px; /* 헤더 내용의 최대 너비입니다. */
+    min-height: 78px; /* 헤더의 최소 높이입니다. */
+    margin: 0 auto; /* 좌우 margin을 auto로 해서 가운데 정렬합니다. */
+    padding: 14px 24px; /* 위아래 14px, 좌우 24px 안쪽 여백입니다. */
+    gap: 12px; /* 로고와 메뉴 사이 간격입니다. */
+}
+
+/* 사이트 이름이 들어간 로고 링크입니다. */
+.logo {
+    display: inline-flex; /* 글자처럼 흐르지만 내부는 flex로 배치합니다. */
+    align-items: center; /* 로고 아이콘과 글자를 세로 가운데 맞춥니다. */
+    gap: 10px; /* 로고 아이콘과 글자 사이 간격입니다. */
+    color: #122218; /* 로고 글자색입니다. */
+    font-size: 1.25rem; /* 로고 글자 크기입니다. */
+    font-weight: 800; /* 로고 글자 굵기입니다. */
+    white-space: nowrap; /* 로고 글자가 줄바꿈되지 않게 합니다. */
+}
+
+/* 체스 왕 모양이 들어간 작은 로고 박스입니다. */
+.logo-mark {
+    display: grid; /* 안의 글자를 쉽게 가운데 정렬하기 위해 grid를 씁니다. */
+    place-items: center; /* 가로와 세로 모두 가운데 정렬합니다. */
+    width: 42px; /* 로고 박스 너비입니다. */
+    height: 42px; /* 로고 박스 높이입니다. */
+    border-radius: 8px; /* 로고 박스 모서리를 둥글게 합니다. */
+    color: #fdfcf8; /* 로고 아이콘 색입니다. */
+    background: #1f3d2b; /* 로고 박스 배경색입니다. */
+    font-size: 1.45rem; /* 로고 아이콘 크기입니다. */
+}
+
+/* 헤더의 주요 메뉴입니다. */
+.main-nav {
+    display: flex; /* 메뉴 링크들을 가로로 배치합니다. */
+    /* flex-wrap: wrap; 화면이 좁으면 메뉴가 다음 줄로 내려가게 합니다. */
+    /* justify-content: flex-end; 메뉴를 오른쪽으로 정렬합니다. */
+    gap: 12px; /* 메뉴 링크 사이 간격입니다. */
+}
+
+/* 메뉴 안의 각각의 링크 스타일입니다. */
+.main-nav a {
+    min-height: 38px; /* 메뉴 버튼의 최소 높이입니다. */
+    padding: 8px 12px; /* 메뉴 버튼 안쪽 여백입니다. */
+    border-radius: 8px; /* 메뉴 버튼 모서리를 둥글게 합니다. */
+    color: #26352c; /* 메뉴 글자색입니다. */
+    font-size: 0.95rem; /* 메뉴 글자 크기입니다. */
+    font-weight: 700; /* 메뉴 글자 굵기입니다. */
+}
+
+/* 메뉴에 마우스를 올렸을 때와 현재 페이지 메뉴의 스타일입니다. */
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+    color: #fdfcf8; /* 선택된 메뉴의 글자색입니다. */
+    background: #1f3d2b; /* 선택된 메뉴의 배경색입니다. */
+}
+
+/* 왼쪽 사이드 영역과 오른쪽 본문 영역을 담는 큰 레이아웃입니다. */
+.page-shell {
+    display: grid; /* 전체 페이지 내용을 grid로 배치합니다. */
+    grid-template-columns: 270px minmax(0, 1fr); /* 첫 칸은 270px 사이드바, 둘째 칸은 남은 공간입니다. */
+    gap: 28px; /* 사이드바와 본문 사이 간격입니다. */
+    max-width: 1180px; /* 페이지 내용의 최대 너비입니다. */
+    margin: 0 auto; /* 페이지 내용을 가운데 정렬합니다. */
+    padding: 28px 24px 48px; /* 위 28px, 좌우 24px, 아래 48px 여백입니다. */
+}
+
+/* 왼쪽 사이드바 전체입니다. */
+.side-panel {
+    display: grid; /* 사이드바 안의 박스들을 세로로 배치합니다. */
+    align-content: start; /* 사이드바 내용이 위쪽부터 시작하게 합니다. */
+    gap: 16px; /* 사이드바 박스 사이 간격입니다. */
+}
+
+/* 여러 카드형 박스에 공통으로 들어가는 테두리와 배경입니다. */
+.side-panel section,
+.main-copy,
+.main-image-area,
+.category-section,
+.preview-card,
+.rule-list article,
+.rule-summary {
+    border: 1px solid #d9ded3; /* 카드 테두리입니다. */
+    border-radius: 8px; /* 카드 모서리를 둥글게 합니다. */
+    background: #fdfcf8; /* 카드 배경색입니다. */
+    box-shadow: 0 14px 30px rgba(27, 48, 34, 0.07); /* 카드 그림자입니다. 숫자를 줄이면 그림자가 약해집니다. */
+}
+
+/* 사이드바 안의 각 section 박스 여백입니다. */
+.side-panel section {
+    padding: 18px; /* 사이드바 박스 안쪽 여백입니다. */
+}
+
+/* 사이드바 제목 스타일입니다. */
+.side-panel h2 {
+    margin-bottom: 12px; /* 제목 아래 여백입니다. */
+    color: #203727; /* 제목 글자색입니다. */
+    font-size: 1.05rem; /* 제목 글자 크기입니다. */
+}
+
+/* 로그인 폼의 입력칸들을 세로로 정렬합니다. */
+.login-box form {
+    display: grid; /* label, input, button을 세로로 배치합니다. */
+    gap: 9px; /* 폼 요소 사이 간격입니다. */
+}
+
+/* 로그인 폼의 라벨입니다. */
+.login-box label {
+    color: #526158; /* 라벨 글자색입니다. */
+    font-size: 0.82rem; /* 라벨 글자 크기입니다. */
+    font-weight: 700; /* 라벨 글자 굵기입니다. */
+}
+
+/* 로그인 입력창입니다. */
+.login-box input {
+    width: 100%; /* 입력창이 부모 너비를 꽉 채우게 합니다. */
+    min-height: 38px; /* 입력창 최소 높이입니다. */
+    padding: 8px 10px; /* 입력창 안쪽 여백입니다. */
+    border: 1px solid #cfd8d1; /* 입력창 테두리입니다. */
+    border-radius: 6px; /* 입력창 모서리를 둥글게 합니다. */
+    background: #ffffff; /* 입력창 배경색입니다. */
+    font: inherit; /* 부모 요소의 글꼴을 그대로 사용합니다. */
+}
+
+/* 로그인 버튼입니다. */
+.login-box button {
+    display: inline-flex; /* 버튼 안 글자를 정렬하기 쉽게 flex를 씁니다. */
+    align-items: center; /* 버튼 글자를 세로 가운데 정렬합니다. */
+    justify-content: center; /* 버튼 글자를 가로 가운데 정렬합니다. */
+    min-height: 40px; /* 버튼 최소 높이입니다. */
+    padding: 9px 14px; /* 버튼 안쪽 여백입니다. */
+    border-radius: 8px; /* 버튼 모서리를 둥글게 합니다. */
+    font-weight: 800; /* 버튼 글자 굵기입니다. */
+    margin-top: 4px; /* 버튼 위쪽 여백입니다. */
+    border: 0; /* 기본 버튼 테두리를 없앱니다. */
+    color: #ffffff; /* 버튼 글자색입니다. */
+    background: #1f3d2b; /* 버튼 배경색입니다. */
+    cursor: pointer; /* 마우스를 올리면 손가락 모양 커서가 됩니다. */
+}
+
+/* 공지사항 목록입니다. */
+.notice-box ul {
+    display: grid; /* 목록 항목을 세로로 배치합니다. */
+    gap: 8px; /* 목록 항목 사이 간격입니다. */
+    padding-left: 18px; /* 목록 점이 잘 보이도록 왼쪽 여백을 줍니다. */
+    color: #4b5d52; /* 공지사항 글자색입니다. */
+    font-size: 0.92rem; /* 공지사항 글자 크기입니다. */
+}
+
+/* 사이트 링크 박스입니다. */
+.link-box {
+    display: grid; /* 링크들을 세로로 배치합니다. */
+    gap: 8px; /* 링크 사이 간격입니다. */
+}
+
+/* 사이트 링크 하나하나의 버튼 모양입니다. */
+.link-box a {
+    padding: 9px 10px; /* 링크 안쪽 여백입니다. */
+    border-radius: 7px; /* 링크 박스 모서리를 둥글게 합니다. */
+    color: #203727; /* 링크 글자색입니다. */
+    background: #eef2e8; /* 링크 배경색입니다. */
+    font-weight: 700; /* 링크 글자 굵기입니다. */
+}
+
+/* 사이트 링크에 마우스를 올렸을 때입니다. */
+.link-box a:hover {
+    background: #dfe8d8; /* 마우스를 올렸을 때 배경색입니다. */
+}
+
+/* 오른쪽 본문 영역이 grid 안에서 줄어들 수 있게 합니다. */
+main {
+    min-width: 0; /* 긴 내용 때문에 본문이 레이아웃 밖으로 밀리지 않게 합니다. */
+}
+
+/* 메인페이지 위쪽 큰 배너입니다. */
+.hero {
+    min-height: 150px; /* 배너 최소 높이입니다. */
+    border-radius: 8px; /* 배너 모서리를 둥글게 합니다. */
+    background:
+        linear-gradient(135deg, rgba(31, 61, 43, 0.96), rgba(35, 47, 50, 0.92)), /* 배너에 어두운 그라데이션을 입힙니다. */
+        #1f3d2b; /* 그라데이션 아래의 기본 배경색입니다. */
+}
+
+/* 배너 안의 글자 묶음입니다. */
+.hero-copy {
+    display: flex; /* 내부 내용을 flex로 배치합니다. */
+    flex-direction: column; /* 배너 안의 글자를 위에서 아래로 쌓습니다. */
+    justify-content: center; /* 배너 안에서 세로 가운데에 오게 합니다. */
+    padding: 20px 34px; /* 배너 안쪽 여백입니다. */
+    color: #fdfcf8; /* 배너 기본 글자색입니다. */
+}
+
+/* 작은 영문 라벨처럼 보이는 글자입니다. */
+.eyebrow {
+    margin-bottom: 8px; /* 라벨 아래 여백입니다. */
+    color: #b9c878; /* 라벨 글자색입니다. */
+    font-size: 0.78rem; /* 라벨 글자 크기입니다. */
+    font-weight: 900; /* 라벨 글자 굵기입니다. */
+    letter-spacing: 0; /* 글자 사이 간격입니다. */
+    text-transform: uppercase; /* 영어를 대문자로 보이게 합니다. */
+}
+
+/* 배너의 큰 제목입니다. */
+.hero h1 {
+    font-size: 2rem; /* 배너 제목 글자 크기입니다. */
+    line-height: 1.12; /* 배너 제목 줄 간격입니다. */
+}
+
+/* rule.html 같은 서브페이지의 큰 제목입니다. */
+.page-title h1 {
+    font-size: 2rem; /* 체스 소개 배너와 같은 제목 글자 크기입니다. */
+    line-height: 1.12; /* 서브페이지 제목 줄 간격입니다. */
+}
+
+/* 배너 안의 설명 문장입니다. */
+.hero p {
+    max-width: 600px; /* 설명 글자가 너무 길게 퍼지지 않게 제한합니다. */
+    margin-top: 8px; /* 설명 문장 위쪽 여백입니다. */
+    color: #e8eee5; /* 설명 문장 글자색입니다. */
+    font-size: 0.92rem; /* 설명 문장 글자 크기입니다. */
+    line-height: 1.35; /* 설명 문장 줄 간격입니다. */
+}
+
+/* 배너 안에서만 eyebrow를 조금 더 작게 조정합니다. */
+.hero .eyebrow,
+.page-title .eyebrow {
+    margin-bottom: 5px; /* 배너 라벨 아래 여백입니다. */
+    font-size: 0.72rem; /* 배너 라벨 글자 크기입니다. */
+}
+
+/* 메인페이지 본문 영역입니다. */
+.main-area {
+    display: grid; /* 본문 안의 영역을 세로로 배치합니다. */
+    gap: 18px; /* 본문 영역 사이 간격입니다. */
+    margin-top: 24px; /* 배너와 본문 사이 여백입니다. */
+}
+
+/* 체스 소개와 학습 카테고리를 가로 2칸으로 배치합니다. */
+.main-info-area {
+    display: grid; /* 두 박스를 grid로 배치합니다. */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 같은 너비의 2칸을 만듭니다. */
+    gap: 18px; /* 두 박스 사이 간격입니다. */
+}
+
+/* 체스 소개 박스와 학습 카테고리 박스의 안쪽 여백입니다. */
+.main-copy,
+.category-section {
+    padding: 24px; /* 박스 안쪽 여백입니다. */
+}
+
+/* 여러 영역의 h2 제목 색을 한 번에 맞춥니다. */
+.main-copy h2,
+.category-section h2,
+.section-title h2,
+.rule-summary h2,
+.rule-list h2 {
+    color: #1f3d2b; /* h2 제목 글자색입니다. */
+}
+
+/* 여러 영역의 본문 문장 색을 한 번에 맞춥니다. */
+.main-copy p,
+.category-section p,
+.preview-card p,
+.rule-summary p,
+.rule-list p {
+    color: #4d5b52; /* 본문 문장 글자색입니다. */
+}
+
+/* 체스 소개 박스에서 p 다음에 또 p가 올 때의 간격입니다. */
+.main-copy p + p {
+    margin-top: 12px; /* 두 번째 문단 위쪽 여백입니다. */
+}
+
+/* 메인 이미지 자리 3개를 가로로 배치하는 영역입니다. */
+.main-image-area {
+    display: grid; /* 이미지 자리들을 grid로 배치합니다. */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 같은 너비의 3칸을 만듭니다. */
+    gap: 14px; /* 이미지 자리 사이 간격입니다. */
+    padding: 18px; /* 이미지 영역 안쪽 여백입니다. */
+}
+
+/* 실제 이미지 대신 보이는 점선 박스입니다. */
+.image-placeholder {
+    display: grid; /* 안의 글자를 가운데 정렬하기 위해 grid를 씁니다. */
+    place-items: center; /* 글자를 가로와 세로 모두 가운데 정렬합니다. */
+    min-height: 240px; /* 이미지 자리의 최소 높이입니다. */
+    border: 2px dashed #b8c3b6; /* 점선 테두리입니다. */
+    border-radius: 8px; /* 박스 모서리를 둥글게 합니다. */
+    color: #6d7b70; /* 박스 안 글자색입니다. */
+    background:
+        linear-gradient(135deg, rgba(31, 61, 43, 0.06), rgba(212, 227, 121, 0.13)), /* 연한 그라데이션 배경입니다. */
+        #fbfaf5; /* 기본 배경색입니다. */
+    font-weight: 800; /* 박스 안 글자 굵기입니다. */
+    text-align: center; /* 박스 안 글자 가운데 정렬입니다. */
+}
+
+/* 학습 카테고리 박스의 추가 위쪽 여백을 없앱니다. */
+.category-section {
+    margin-top: 0; /* 위쪽 바깥 여백을 없앱니다. */
+}
+
+/* 학습 카테고리 문단과 제목 사이 간격입니다. */
+.category-section p {
+    margin-top: 8px; /* 문단 위쪽 여백입니다. */
+}
+
+/* 학습 미리보기 전체 영역입니다. */
+.preview-section {
+    margin-top: 36px; /* 위쪽 영역과의 간격입니다. */
+}
+
+/* 섹션 제목 묶음입니다. */
+.section-title {
+    margin-bottom: 16px; /* 제목 묶음 아래 여백입니다. */
+}
+
+/* 학습 미리보기 카드들을 배치하는 grid입니다. */
+.preview-grid {
+    display: grid; /* 카드들을 grid로 배치합니다. */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 같은 너비의 2칸을 만듭니다. */
+    gap: 18px; /* 카드 사이 간격입니다. */
+}
+
+/* 학습 미리보기 카드 하나입니다. */
+.preview-card {
+    display: grid; /* 카드 안에서 이미지와 글자를 grid로 배치합니다. */
+    grid-template-columns: 150px minmax(0, 1fr); /* 왼쪽 이미지는 150px, 오른쪽 글자는 남은 공간입니다. */
+    min-height: 176px; /* 카드 최소 높이입니다. */
+    overflow: hidden; /* 이미지나 내용이 카드 밖으로 넘치면 잘라냅니다. */
+}
+
+/* 학습 미리보기 카드의 이미지입니다. */
+.preview-card img {
+    width: 100%; /* 이미지 너비를 이미지 칸에 맞춥니다. */
+    height: 100%; /* 이미지 높이를 카드 높이에 맞춥니다. */
+    object-fit: cover; /* 이미지 비율을 유지하면서 칸을 꽉 채웁니다. */
+    background: #e5e8dd; /* 이미지가 늦게 뜰 때 보이는 배경색입니다. */
+}
+
+/* 학습 미리보기 카드 안의 글자 영역입니다. */
+.preview-card div {
+    padding: 18px; /* 글자 영역 안쪽 여백입니다. */
+}
+
+/* 카드와 규칙 목록에서 작은 분류 라벨로 쓰이는 span입니다. */
+.preview-card span,
+.rule-list span {
+    color: #6e7d38; /* 작은 라벨 글자색입니다. */
+    font-size: 0.78rem; /* 작은 라벨 글자 크기입니다. */
+    font-weight: 900; /* 작은 라벨 글자 굵기입니다. */
+}
+
+/* 학습 미리보기 카드의 h3 제목입니다. */
+.preview-card h3 {
+    margin: 5px 0 8px; /* 위 5px, 좌우 0, 아래 8px 여백입니다. */
+    color: #1f2f24; /* 카드 제목 글자색입니다. */
+    font-size: 1.08rem; /* 카드 제목 글자 크기입니다. */
+}
+
+/* 서브페이지 상단 제목 박스입니다. */
+.page-title {
+    display: flex; /* 제목과 설명을 세로 가운데에 놓기 위해 flex를 씁니다. */
+    flex-direction: column; /* 제목 박스 안의 내용을 위아래로 쌓습니다. */
+    justify-content: center; /* 체스 소개 배너처럼 내용을 세로 가운데 정렬합니다. */
+    min-height: 150px; /* 체스 소개 배너와 같은 최소 높이입니다. */
+    padding: 20px 34px; /* 체스 소개 배너와 같은 안쪽 여백입니다. */
+    border-radius: 8px; /* 제목 박스 모서리를 둥글게 합니다. */
+    color: #fdfcf8; /* 제목 박스 기본 글자색입니다. */
+    background: #1f3d2b; /* 제목 박스 배경색입니다. */
+}
+
+/* 서브페이지 제목 아래 설명 문장입니다. */
+.page-title p {
+    max-width: 600px; /* 체스 소개 배너와 같은 설명 문장 최대 너비입니다. */
+    margin-top: 8px; /* 체스 소개 배너와 같은 설명 문장 위쪽 여백입니다. */
+    color: #e8eee5; /* 체스 소개 배너와 같은 설명 문장 글자색입니다. */
+    font-size: 0.92rem; /* 체스 소개 배너와 같은 설명 문장 글자 크기입니다. */
+    line-height: 1.35; /* 체스 소개 배너와 같은 설명 문장 줄 간격입니다. */
+}
+
+/* 규칙 페이지에서 이미지와 설명 박스를 나란히 놓는 영역입니다. */
+.rule-layout {
+    display: grid; /* 이미지와 설명을 grid로 배치합니다. */
+    grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.15fr); /* 왼쪽 이미지 칸과 오른쪽 설명 칸 비율입니다. */
+    gap: 18px; /* 이미지와 설명 사이 간격입니다. */
+    margin-top: 24px; /* 위쪽 제목 박스와의 간격입니다. */
+    align-items: stretch; /* 두 칸의 높이를 맞춥니다. */
+}
+
+/* 규칙 페이지의 대표 이미지입니다. */
+.rule-layout img {
+    width: 100%; /* 이미지 너비를 칸에 맞춥니다. */
+    height: 100%; /* 이미지 높이를 칸에 맞춥니다. */
+    min-height: 260px; /* 이미지 최소 높이입니다. */
+    border-radius: 8px; /* 이미지 모서리를 둥글게 합니다. */
+    object-fit: cover; /* 이미지 비율을 유지하면서 칸을 꽉 채웁니다. */
+}
+
+/* 규칙 페이지의 요약 설명 박스입니다. */
+.rule-summary {
+    display: flex; /* 안쪽 내용을 flex로 배치합니다. */
+    flex-direction: column; /* 제목과 문단을 위아래로 쌓습니다. */
+    justify-content: center; /* 박스 안에서 내용을 세로 가운데 정렬합니다. */
+    padding: 28px; /* 요약 박스 안쪽 여백입니다. */
+}
+
+/* 규칙 요약 문단 간격입니다. */
+.rule-summary p {
+    margin-top: 10px; /* 문단 위쪽 여백입니다. */
+}
+
+/* 규칙 설명 카드 목록입니다. */
+.rule-list {
+    display: grid; /* 규칙 카드를 grid로 배치합니다. */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 같은 너비의 2칸을 만듭니다. */
+    gap: 18px; /* 규칙 카드 사이 간격입니다. */
+    margin-top: 24px; /* 위쪽 내용과의 간격입니다. */
+}
+
+/* 규칙 설명 카드 하나입니다. */
+.rule-list article {
+    min-height: 180px; /* 카드 최소 높이입니다. */
+    padding: 24px; /* 카드 안쪽 여백입니다. */
+}
+
+/* 규칙 설명 카드 제목입니다. */
+.rule-list h2 {
+    margin: 5px 0 8px; /* 위 5px, 좌우 0, 아래 8px 여백입니다. */
+    font-size: 1.2rem; /* 규칙 카드 제목 글자 크기입니다. */
+}
+
+/* 페이지 맨 아래 푸터입니다. */
+.site-footer {
+    padding: 28px 24px; /* 푸터 안쪽 여백입니다. */
+    border-top: 1px solid #d9ded3; /* 푸터 위쪽 경계선입니다. */
+    color: #526158; /* 푸터 글자색입니다. */
+    background: #fdfcf8; /* 푸터 배경색입니다. */
+    text-align: center; /* 푸터 글자를 가운데 정렬합니다. */
+    font-size: 0.92rem; /* 푸터 글자 크기입니다. */
+}
+
+/* 푸터에서 p 다음에 또 p가 올 때의 간격입니다. */
+.site-footer p + p {
+    margin-top: 6px; /* 두 번째 푸터 문단 위쪽 여백입니다. */
+}
+
+/* 화면 너비가 900px 이하일 때 적용되는 반응형 스타일입니다. */
+@media (max-width: 900px) {
+    /* 헤더 안쪽 요소를 위아래로 배치합니다. */
+    .header-inner {
+        align-items: flex-start; /* 헤더 내용을 왼쪽에 맞춥니다. */
+        flex-direction: column; /* 로고와 메뉴를 세로로 쌓습니다. */
+    }
+
+    /* 작은 화면에서는 메뉴를 왼쪽 정렬합니다. */
+    .main-nav {
+        justify-content: flex-start; /* 메뉴를 왼쪽으로 정렬합니다. */
+    }
+
+    /* 사이드바와 본문을 한 줄씩 세로로 쌓습니다. */
+    .page-shell {
+        grid-template-columns: 1fr; /* 한 칸 레이아웃으로 바꿉니다. */
+    }
+
+    /* 사이드바 박스들을 가로 3칸으로 배치합니다. */
+    .side-panel {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 같은 너비의 3칸을 만듭니다. */
+    }
+
+    /* 규칙 페이지의 이미지와 설명을 한 줄씩 쌓습니다. */
+    .rule-layout {
+        grid-template-columns: 1fr; /* 한 칸 레이아웃으로 바꿉니다. */
+    }
+
+    /* 작은 화면에서 배너 제목 크기를 줄입니다. */
+    .hero h1,
+    .page-title h1 {
+        font-size: 1.8rem; /* 배너 제목 글자 크기입니다. */
+    }
+}
+
+/* 화면 너비가 700px 이하일 때 적용되는 반응형 스타일입니다. */
+@media (max-width: 700px) {
+    /* 좌우 여백을 줄여서 작은 화면에 더 잘 맞춥니다. */
+    .header-inner,
+    .page-shell {
+        padding-left: 16px; /* 왼쪽 안쪽 여백입니다. */
+        padding-right: 16px; /* 오른쪽 안쪽 여백입니다. */
+    }
+
+    /* 여러 2칸 레이아웃을 1칸으로 바꿉니다. */
+    .side-panel,
+    .main-info-area,
+    .preview-grid,
+    .rule-list {
+        grid-template-columns: 1fr; /* 한 칸 레이아웃입니다. */
+    }
+
+    /* 메인 이미지 자리도 한 줄에 하나씩 보이게 합니다. */
+    .main-image-area {
+        grid-template-columns: 1fr; /* 한 칸 레이아웃입니다. */
+    }
+
+    /* 배너 안쪽 여백을 줄입니다. */
+    .hero-copy,
+    .page-title {
+        padding: 20px; /* 작은 화면용 배너 안쪽 여백입니다. */
+    }
+
+    /* 학습 카드의 이미지 칸을 조금 좁힙니다. */
+    .preview-card {
+        grid-template-columns: 120px minmax(0, 1fr); /* 이미지 120px, 글자는 남은 공간입니다. */
+    }
+
+    /* 학습 카드 글자 영역 여백을 줄입니다. */
+    .preview-card div {
+        padding: 14px; /* 작은 화면용 카드 글자 영역 여백입니다. */
+    }
+}
+
+/* 화면 너비가 460px 이하인 아주 작은 화면용 스타일입니다. */
+@media (max-width: 460px) {
+    /* 로고 글자가 길면 줄바꿈되게 합니다. */
+    .logo {
+        white-space: normal; /* 로고 글자 줄바꿈을 허용합니다. */
+    }
+
+    /* 메뉴 버튼을 한 줄에 2개씩 보이게 합니다. */
+    .main-nav a {
+        width: calc(50% - 4px); /* 메뉴 하나의 너비를 절반 정도로 만듭니다. */
+        text-align: center; /* 메뉴 글자를 가운데 정렬합니다. */
+    }
+
+    /* 아주 작은 화면에서 배너 제목을 더 줄입니다. */
+    .hero h1,
+    .page-title h1 {
+        font-size: 1.55rem; /* 배너 제목 글자 크기입니다. */
+    }
+
+    /* 아주 작은 화면에서 배너 설명 글자 크기입니다. */
+    .hero p,
+    .page-title p {
+        font-size: 0.98rem; /* 배너 설명 글자 크기입니다. */
+    }
+
+    /* 학습 카드는 이미지와 글자를 위아래로 쌓습니다. */
+    .preview-card {
+        grid-template-columns: 1fr; /* 한 칸 레이아웃입니다. */
+    }
+
+    /* 학습 카드 이미지 높이를 고정합니다. */
+    .preview-card img {
+        height: 180px; /* 작은 화면에서 카드 이미지 높이입니다. */
+    }
+
+    /* 메인 이미지 자리 높이를 줄입니다. */
+    .image-placeholder {
+        min-height: 160px; /* 작은 화면에서 이미지 자리 최소 높이입니다. */
+    }
+}

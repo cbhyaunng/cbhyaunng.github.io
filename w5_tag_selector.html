@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그선택자</title>
+    <style>
+        h2 {
+            color: #ff0000;
+            font-family: "맑은 고딕";
+            font-size: 25px;
+        }
+        h3 {
+            color: #0000ff;
+            font-style: italic;
+            text-decoration:underline;
+            font-size: 20px;
+        }
+        p {
+            color: #000000;
+            line-height:150%;
+            font-family: "돋움";
+            font-size: 14px;
+        }
+        /* 아이디 선택자 한번만 사용가능*/
+        #position {
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        #weather {
+            color: #ff00ff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>참나무</h2>
+    <h3>1.특징</h3>
+    <p>참나무는 낙엽수로, 봄에는 새싹이 나고 여름에는 풀이 자라며 <span id="weather">가을</span>에는 단풍으로 아름다운 모습을 보여줍니다.</p>
+    <h3>2.분포 및 종류</h3>
+    <p>참나무는 전 세계적으로 약 600여 종이 있으며, 북반구의 <span id="position">온대 지역</span>에서 주로 자랍니다. 한국에서는 참나무과에 속하는 여러 종이 자생하고 있습니다.</p>
+    <!-- div 태그는 컨테이너 역할을 한다 -->
+    <!-- span 태그는 인라인 컨테이너 역할을 한다 -->
+
+</body>
+</html>

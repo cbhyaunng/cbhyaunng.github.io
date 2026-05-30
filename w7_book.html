@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책 소개</title>
+    <style>
+        *{ /* 모든 요소에 적용되는 스타일을 지정하는 선택자입니다. */
+            margin:0;
+            padding:0; /* 요소의 기본 여백과 패딩을 제거하여 일관된 레이아웃을 유지할 수 있도록 합니다. */
+        }
+        #banner{
+            width:185px;
+            height:236px;
+            background-image: url("book2.jpeg");
+            border:solid 3px #000000;
+        }
+        #banner img{
+            /* 후손 선택자 
+            배너 아래에 있는 이미지에 스타일 적용*/
+            margin:200px 0 0 50px; /* 위200 오른쪽 아래 왼쪽50 , 버튼 이미지 위치 조정(배경이미지 기준) */
+        }
+        h3{
+            margin:20px 0 0 10px; 
+        }
+        ul{
+            margin:10px 0 0 20px;
+        }
+        li{
+            margin-top:5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>책 소개</h3>
+    <ul>
+        <li>저자 : 히가시노 게이고</li>
+        <li>출판사 : 재인</li>
+    </ul>
+    <div id="banner">
+        <img src="buy.png" width="80" height="30">
+    </div>
+</body>
+</html>

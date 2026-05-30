@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .items{
+            border:solid 1px #000000;
+            float:left;
+            margin:5px;
+
+        }
+        .items img{
+            width: 120px;
+            height: 80px;
+            display:block; 
+            /* display 속성은 요소의 표시 방식을 지정하는 속성입니다. block은 요소를 블록 레벨 요소로 만들어서 줄 바꿈이 일어나도록 합니다. */
+        }
+        .clear{
+            clear:left; 
+            /* clear 속성은 요소가 이전에 떠 있는 요소의 영향을 받지 않도록 하는 속성입니다. 
+            left는 왼쪽으로 떠 있는 요소의 영향을 받지 않도록 합니다.
+            left right both(left,right 모두 해제) */
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <img src="zoo.png">
+    </div>
+    <div class="items">
+        <img src="dragonfly.jpg">
+    </div>
+    <div class="items">
+        <img src="flower.jpg">
+    </div>
+
+    <div class="clear"></div> <!-- clear 클래스를 가진 요소는 이전에 떠 있는 요소의 영향을 받지 않도록 합니다. -->
+
+    <div class="items">
+        <img src="ladybug.jpeg" >
+    </div>
+    <div class="items">
+        <img src="yangguibi.jpeg" >
+    </div>
+    <div class="items">
+        <img src="zoomap.png" >
+    </div>
+    
+    
+    
+    
+</body>
+</html>

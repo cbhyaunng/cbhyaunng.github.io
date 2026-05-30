@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #parent{
+            width: 500px;
+            height: 300px;
+            border:solid 5px #000000;
+            margin:50px 0 0 50px;  
+            position: relative;
+        }
+        #box1, #box2, #box3{
+            width: 80px;
+            height: 80px;
+        }
+        #box1 {background-color: #ff0000;}
+        #box2 {
+            background-color: #00ff00;
+            position: relative; /* position 속성은 요소의 위치를 지정하는 속성입니다. relative는 요소를 일반적인 흐름에 따라 배치하되, top, right, bottom, left 속성을 사용하여 요소의 위치를 조정할 수 있도록 합니다. */
+            top: 50px;
+            left: 50px; 
+        }
+        #box3 {
+            background-color: #ffff00;
+            position: absolute; /* position 속성은 요소의 위치를 지정하는 속성입니다. absolute는 요소를 일반적인 흐름에서 제거하고, 가장 가까운 위치가 지정된 조상 요소를 기준으로 배치합니다. */
+            top: 10px;
+            left: 30px;}
+        </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+</body>
+</html>
