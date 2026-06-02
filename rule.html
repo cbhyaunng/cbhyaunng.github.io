@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>체스 규칙 | 체스 입문 가이드</title>
+    <title>체스 입문 가이드 | 체스 규칙</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:,">
 </head>
@@ -17,47 +17,41 @@
             <nav class="main-nav" aria-label="주요 메뉴">
                 <a href="index.html">체스 소개</a>
                 <a href="rule.html" aria-current="page">체스 규칙</a>
-                <a href="index.html">말의 이동</a>
-                <a href="index.html">기본 전략</a>
-                <a href="index.html">전술 퀴즈</a>
+                <a href="move.html">말의 이동</a>
+                <a href="strategy.html">기본 전략</a>
+                <a href="tactic.html">기본 전술</a>
             </nav>
         </div>
     </header>
 
     <div class="page-shell">
         <aside class="side-panel" aria-label="보조 메뉴">
-            <section class="login-box">
-                <h2>로그인</h2>
-                <form>
-                    <label for="rule-user-id">아이디</label>
-                    <input id="rule-user-id" type="text" placeholder="id">
-                    <label for="rule-user-pw">비밀번호</label>
-                    <input id="rule-user-pw" type="password" placeholder="password">
-                    <button type="button">로그인</button>
-                </form>
-            </section>
-
             <section class="notice-box">
                 <h2>공지사항</h2>
                 <ul>
                     <li>처음이라면 체스 소개부터 읽어보세요.</li>
-                    <li>하루 한 문제 전술 퀴즈로 계산력을 키워보세요.</li>
+                    <li>기본 전략 페이지가 업데이트 되었습니다.</li>
                     <li>체스 규칙 페이지가 업데이트 되었습니다.</li>
                 </ul>
             </section>
 
             <section class="link-box">
                 <h2>온라인 체스 사이트</h2>
-                <a href="https://www.chess.com/" target="_blank" rel="noopener">Chess.com</a>
-                <a href="https://lichess.org/" target="_blank" rel="noopener">Lichess</a>
+                <a href="https://www.chess.com/" target="_blank" rel="noopener"><img src="chesscom.jpeg" alt="">Chess.com</a>
+                <a href="https://lichess.org/" target="_blank" rel="noopener"><img src="lichess.png" alt="">Lichess</a>
             </section>
         </aside>
 
         <main>
-            <section class="page-title">
-                <p class="eyebrow">Chess Rules</p>
-                <h1>체스 규칙</h1>
-                <p>체스 규칙 / 체크, 체크메이트, 무승부 등 기본 규칙을 배웁니다.</p>
+            <section class="hero" id="intro">
+                <div class="hero-copy">
+                    <p class="eyebrow">규칙 정리</p>
+                    <h1>체스 규칙 설명</h1>
+                    <p>
+                        체스는 백이 먼저 시작하고, 두 사람이 번갈아 한 수씩 두는 게임입니다.<br>
+                        승리 조건, 체크, 체크메이트, 무승부, 특수 규칙을 차근차근 알아봅니다.
+                    </p>
+                </div>
             </section>
 
             <article class="rule-layout">
@@ -65,9 +59,9 @@
                 <div class="rule-summary">
                     <h2>기본 진행</h2>
                     <p>
-                        체스는 백이 먼저 시작하고, 이후 흑과 백이 번갈아 한 수씩 둡니다.
-                        자기 말이 있는 칸으로는 이동할 수 없으며, 상대 말이 있는 칸으로
-                        이동하면 그 말을 잡을 수 있습니다.
+                        체스판은 8x8, 총 64개의 칸으로 이루어져 있습니다.
+                        백과 흑은 각각 16개의 말을 가지고 시작하며, 한 차례에는 보통 하나의 말만 움직입니다.
+                        자기 말이 있는 칸으로는 이동할 수 없고, 상대 말이 있는 칸으로 이동하면 그 말을 잡습니다.
                     </p>
                 </div>
             </article>
@@ -76,32 +70,42 @@
                 <article>
                     <span>01</span>
                     <h2>게임 목표</h2>
-                    <p>상대 킹을 더 이상 피할 수 없게 공격하면 승리합니다.</p>
+                    <p>체스의 목표는 상대 킹을 체크메이트하는 것입니다. 킹을 실제로 잡는 것이 아니라, 킹이 공격을 피할 방법이 없는 상태를 만들면 승리합니다.</p>
                 </article>
                 <article>
                     <span>02</span>
-                    <h2>체크</h2>
-                    <p>킹이 상대 말의 공격을 받는 상태입니다. 체크를 받으면 반드시 피해야 합니다.</p>
+                    <h2>말 이동과 잡기</h2>
+                    <p>각 말은 정해진 방향과 거리로만 움직입니다. 상대 말이 있는 칸으로 이동하면 그 말을 잡고, 자신의 말이 있는 칸으로는 이동할 수 없습니다.</p>
                 </article>
                 <article>
                     <span>03</span>
-                    <h2>체크메이트</h2>
-                    <p>체크를 피할 방법이 없으면 게임이 종료되고 공격한 쪽이 승리합니다.</p>
+                    <h2>체크</h2>
+                    <p>킹이 상대 말의 공격을 받는 상태를 체크라고 합니다. 체크를 받으면 킹을 움직이거나, 공격하는 말을 잡거나, 공격선을 막아 반드시 체크를 해결해야 합니다.</p>
                 </article>
                 <article>
                     <span>04</span>
-                    <h2>무승부</h2>
-                    <p>스테일메이트, 같은 상황 반복, 양쪽 합의 등으로 승부가 나지 않을 수 있습니다.</p>
+                    <h2>체크메이트</h2>
+                    <p>체크를 받은 킹이 어디로도 피할 수 없고, 공격 말을 잡거나 막을 수도 없다면 체크메이트입니다. 이 순간 게임이 끝나고 공격한 쪽이 승리합니다.</p>
                 </article>
                 <article>
                     <span>05</span>
-                    <h2>특수 규칙</h2>
-                    <p>캐슬링, 앙파상, 폰 프로모션은 초보자가 따로 익혀야 할 대표적인 특수 규칙입니다.</p>
+                    <h2>스테일메이트</h2>
+                    <p>체크는 아니지만 둘 차례인 사람이 둘 수 있는 합법적인 수가 하나도 없으면 스테일메이트가 됩니다. 이 경우는 승리가 아니라 무승부입니다.</p>
                 </article>
                 <article>
                     <span>06</span>
-                    <h2>킹의 안전</h2>
-                    <p>킹은 상대 말에게 공격받는 칸으로 이동할 수 없고, 체크 상태를 방치할 수 없습니다.</p>
+                    <h2>무승부</h2>
+                    <p>스테일메이트 외에도 같은 상황이 반복되거나, 양쪽이 합의하거나, 체크메이트를 만들 말이 부족하면 무승부가 될 수 있습니다.</p>
+                </article>
+                <article>
+                    <span>07</span>
+                    <h2>특수 규칙</h2>
+                    <p>캐슬링은 킹과 룩을 함께 움직여 킹을 안전하게 두는 규칙입니다. 앙파상은 폰이 두 칸 전진했을 때 바로 다음 수에만 가능한 특별한 잡기입니다.</p>
+                </article>
+                <article>
+                    <span>08</span>
+                    <h2>폰 프로모션</h2>
+                    <p>폰이 상대 진영의 끝 줄까지 도착하면 퀸, 룩, 비숍, 나이트 중 하나로 바꿀 수 있습니다. 보통 가장 강한 퀸으로 바꾸는 경우가 많습니다.</p>
                 </article>
             </section>
         </main>

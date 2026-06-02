@@ -31,9 +31,9 @@ html {
 /* 페이지 전체의 기본 글자, 배경, 최소 너비를 정합니다. */
 body {
     min-width: 320px; /* 화면이 너무 작아져도 최소 320px 너비는 유지합니다. */
-    color: #17201a; /* 기본 글자색입니다. */
-    background: #f6f4ee; /* 페이지 전체 배경색입니다. */
-    font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif; /* 글꼴 순서입니다. 앞 글꼴이 없으면 다음 글꼴을 씁니다. */
+    color: #2b2118; /* 기본 글자색입니다. */
+    background: #f4eddf; /* 페이지 전체 배경색입니다. */
+    font-family: "굴림"; /* 글꼴 순서입니다. 앞 글꼴이 없으면 다음 글꼴을 씁니다. */
     line-height: 1.6; /* 줄 간격입니다. 숫자가 커질수록 줄 사이가 넓어집니다. */
 }
 
@@ -51,20 +51,20 @@ img {
 
 /* 페이지 맨 위 헤더 영역입니다. */
 .site-header {
-    position: sticky; /* 스크롤해도 위쪽에 붙어 있게 합니다. */
-    top: 0; /* sticky가 붙을 위치를 화면 맨 위로 정합니다. */
-    z-index: 10; /* 다른 요소보다 위에 보이게 합니다. */
-    border-bottom: 1px solid #d9ded3; /* 헤더 아래쪽 경계선입니다. */
-    background: #fdfcf8; /* 헤더 배경색입니다. */
+    /* position: sticky; 스크롤해도 위쪽에 붙어 있게 합니다. */
+    /* top: 0; sticky가 붙을 위치를 화면 맨 위로 정합니다. */
+    /* z-index: 10; 다른 요소보다 위에 보이게 합니다. */
+    border-bottom: 1px solid #cdbb9f; /* 헤더 아래쪽 경계선입니다. */
+    background: #fbf6ec; /* 헤더 배경색입니다. */
 }
 
 /* 헤더 안의 로고와 메뉴를 가로로 배치하는 영역입니다. */
 .header-inner {
-    display: flex; /* 안쪽 요소를 가로 방향으로 배치합니다. */
+    display: grid; /* 안쪽 요소를 가로 방향으로 배치합니다. */
+    grid-template-columns: 1fr auto 1fr; /* 왼쪽 로고, 가운데 메뉴, 오른쪽 빈 공간을 만듭니다. */
     align-items: center; /* 세로 방향 가운데 정렬입니다. */
-    justify-content: space-between; /* 로고와 메뉴를 양쪽 끝으로 벌립니다. */
     max-width: 1180px; /* 헤더 내용의 최대 너비입니다. */
-    min-height: 78px; /* 헤더의 최소 높이입니다. */
+    min-height: 70px; /* 헤더의 최소 높이입니다. */
     margin: 0 auto; /* 좌우 margin을 auto로 해서 가운데 정렬합니다. */
     padding: 14px 24px; /* 위아래 14px, 좌우 24px 안쪽 여백입니다. */
     gap: 12px; /* 로고와 메뉴 사이 간격입니다. */
@@ -75,8 +75,8 @@ img {
     display: inline-flex; /* 글자처럼 흐르지만 내부는 flex로 배치합니다. */
     align-items: center; /* 로고 아이콘과 글자를 세로 가운데 맞춥니다. */
     gap: 10px; /* 로고 아이콘과 글자 사이 간격입니다. */
-    color: #122218; /* 로고 글자색입니다. */
-    font-size: 1.25rem; /* 로고 글자 크기입니다. */
+    color: #3c2a1d; /* 로고 글자색입니다. */
+    font-size: 19px; /* 로고 글자 크기입니다. */
     font-weight: 800; /* 로고 글자 굵기입니다. */
     white-space: nowrap; /* 로고 글자가 줄바꿈되지 않게 합니다. */
 }
@@ -85,37 +85,39 @@ img {
 .logo-mark {
     display: grid; /* 안의 글자를 쉽게 가운데 정렬하기 위해 grid를 씁니다. */
     place-items: center; /* 가로와 세로 모두 가운데 정렬합니다. */
-    width: 42px; /* 로고 박스 너비입니다. */
-    height: 42px; /* 로고 박스 높이입니다. */
-    border-radius: 8px; /* 로고 박스 모서리를 둥글게 합니다. */
-    color: #fdfcf8; /* 로고 아이콘 색입니다. */
-    background: #1f3d2b; /* 로고 박스 배경색입니다. */
-    font-size: 1.45rem; /* 로고 아이콘 크기입니다. */
+    width: auto; /* 로고 박스 너비입니다. */
+    height: auto; /* 로고 박스 높이입니다. */
+    border-radius: 0; /* 로고 박스 모서리를 둥글게 합니다. */
+    color: #6b4a2d; /* 로고 아이콘 색입니다. */
+    background: transparent; /* 로고 박스 배경색입니다. */
+    font-size: 28px; /* 로고 아이콘 크기입니다. */
 }
 
 /* 헤더의 주요 메뉴입니다. */
 .main-nav {
     display: flex; /* 메뉴 링크들을 가로로 배치합니다. */
-    /* flex-wrap: wrap; 화면이 좁으면 메뉴가 다음 줄로 내려가게 합니다. */
-    /* justify-content: flex-end; 메뉴를 오른쪽으로 정렬합니다. */
-    gap: 12px; /* 메뉴 링크 사이 간격입니다. */
+    flex-wrap: wrap; /* 화면이 좁으면 메뉴가 다음 줄로 내려가게 합니다. */
+    justify-content: center; /* 메뉴를 가운데로 정렬합니다. */
+    gap: 60px; /* 메뉴 링크 사이 간격입니다. */
+    transform: translateX(90px); /* 메뉴 전체를 오른쪽으로 살짝 이동합니다. 숫자를 키우면 더 오른쪽으로 갑니다. */
 }
 
 /* 메뉴 안의 각각의 링크 스타일입니다. */
 .main-nav a {
-    min-height: 38px; /* 메뉴 버튼의 최소 높이입니다. */
-    padding: 8px 12px; /* 메뉴 버튼 안쪽 여백입니다. */
-    border-radius: 8px; /* 메뉴 버튼 모서리를 둥글게 합니다. */
-    color: #26352c; /* 메뉴 글자색입니다. */
-    font-size: 0.95rem; /* 메뉴 글자 크기입니다. */
+    min-height: 0; /* 메뉴 버튼의 최소 높이입니다. */
+    padding: 4px 0; /* 메뉴 버튼 안쪽 여백입니다. */
+    border-bottom: 2px solid transparent; /* 메뉴 아래 선입니다. */
+    border-radius: 0; /* 메뉴 버튼 모서리를 둥글게 합니다. */
+    color: #4c3b2b; /* 메뉴 글자색입니다. */
+    font-size: 14px; /* 메뉴 글자 크기입니다. */
     font-weight: 700; /* 메뉴 글자 굵기입니다. */
 }
 
 /* 메뉴에 마우스를 올렸을 때와 현재 페이지 메뉴의 스타일입니다. */
 .main-nav a:hover,
 .main-nav a[aria-current="page"] {
-    color: #fdfcf8; /* 선택된 메뉴의 글자색입니다. */
-    background: #1f3d2b; /* 선택된 메뉴의 배경색입니다. */
+    color: #6b4a2d; /* 선택된 메뉴의 글자색입니다. */
+    border-bottom-color: #6b4a2d; /* 선택된 메뉴의 아래 선 색입니다. */
 }
 
 /* 왼쪽 사이드 영역과 오른쪽 본문 영역을 담는 큰 레이아웃입니다. */
@@ -143,10 +145,10 @@ img {
 .preview-card,
 .rule-list article,
 .rule-summary {
-    border: 1px solid #d9ded3; /* 카드 테두리입니다. */
-    border-radius: 8px; /* 카드 모서리를 둥글게 합니다. */
-    background: #fdfcf8; /* 카드 배경색입니다. */
-    box-shadow: 0 14px 30px rgba(27, 48, 34, 0.07); /* 카드 그림자입니다. 숫자를 줄이면 그림자가 약해집니다. */
+    border: 1px solid #d6c8b2; /* 카드 테두리입니다. */
+    border-radius: 4px; /* 카드 모서리를 둥글게 합니다. */
+    background: #fffaf0; /* 카드 배경색입니다. */
+    box-shadow: none; /* 카드 그림자입니다. 숫자를 줄이면 그림자가 약해집니다. */
 }
 
 /* 사이드바 안의 각 section 박스 여백입니다. */
@@ -157,48 +159,8 @@ img {
 /* 사이드바 제목 스타일입니다. */
 .side-panel h2 {
     margin-bottom: 12px; /* 제목 아래 여백입니다. */
-    color: #203727; /* 제목 글자색입니다. */
-    font-size: 1.05rem; /* 제목 글자 크기입니다. */
-}
-
-/* 로그인 폼의 입력칸들을 세로로 정렬합니다. */
-.login-box form {
-    display: grid; /* label, input, button을 세로로 배치합니다. */
-    gap: 9px; /* 폼 요소 사이 간격입니다. */
-}
-
-/* 로그인 폼의 라벨입니다. */
-.login-box label {
-    color: #526158; /* 라벨 글자색입니다. */
-    font-size: 0.82rem; /* 라벨 글자 크기입니다. */
-    font-weight: 700; /* 라벨 글자 굵기입니다. */
-}
-
-/* 로그인 입력창입니다. */
-.login-box input {
-    width: 100%; /* 입력창이 부모 너비를 꽉 채우게 합니다. */
-    min-height: 38px; /* 입력창 최소 높이입니다. */
-    padding: 8px 10px; /* 입력창 안쪽 여백입니다. */
-    border: 1px solid #cfd8d1; /* 입력창 테두리입니다. */
-    border-radius: 6px; /* 입력창 모서리를 둥글게 합니다. */
-    background: #ffffff; /* 입력창 배경색입니다. */
-    font: inherit; /* 부모 요소의 글꼴을 그대로 사용합니다. */
-}
-
-/* 로그인 버튼입니다. */
-.login-box button {
-    display: inline-flex; /* 버튼 안 글자를 정렬하기 쉽게 flex를 씁니다. */
-    align-items: center; /* 버튼 글자를 세로 가운데 정렬합니다. */
-    justify-content: center; /* 버튼 글자를 가로 가운데 정렬합니다. */
-    min-height: 40px; /* 버튼 최소 높이입니다. */
-    padding: 9px 14px; /* 버튼 안쪽 여백입니다. */
-    border-radius: 8px; /* 버튼 모서리를 둥글게 합니다. */
-    font-weight: 800; /* 버튼 글자 굵기입니다. */
-    margin-top: 4px; /* 버튼 위쪽 여백입니다. */
-    border: 0; /* 기본 버튼 테두리를 없앱니다. */
-    color: #ffffff; /* 버튼 글자색입니다. */
-    background: #1f3d2b; /* 버튼 배경색입니다. */
-    cursor: pointer; /* 마우스를 올리면 손가락 모양 커서가 됩니다. */
+    color: #5b3922; /* 제목 글자색입니다. */
+    font-size: 16px; /* 제목 글자 크기입니다. */
 }
 
 /* 공지사항 목록입니다. */
@@ -206,8 +168,8 @@ img {
     display: grid; /* 목록 항목을 세로로 배치합니다. */
     gap: 8px; /* 목록 항목 사이 간격입니다. */
     padding-left: 18px; /* 목록 점이 잘 보이도록 왼쪽 여백을 줍니다. */
-    color: #4b5d52; /* 공지사항 글자색입니다. */
-    font-size: 0.92rem; /* 공지사항 글자 크기입니다. */
+    color: #5e4d3a; /* 공지사항 글자색입니다. */
+    font-size: 14px; /* 공지사항 글자 크기입니다. */
 }
 
 /* 사이트 링크 박스입니다. */
@@ -218,16 +180,29 @@ img {
 
 /* 사이트 링크 하나하나의 버튼 모양입니다. */
 .link-box a {
-    padding: 9px 10px; /* 링크 안쪽 여백입니다. */
-    border-radius: 7px; /* 링크 박스 모서리를 둥글게 합니다. */
-    color: #203727; /* 링크 글자색입니다. */
-    background: #eef2e8; /* 링크 배경색입니다. */
+    display: flex; /* 로고 이미지와 글자를 가로로 나란히 배치합니다. */
+    align-items: center; /* 로고와 글자의 세로 위치를 가운데로 맞춥니다. */
+    gap: 8px; /* 로고와 글자 사이 간격입니다. */
+    padding: 7px 0 7px 10px; /* 링크 안쪽 여백입니다. */
+    border-left: 3px solid #cdbb9f; /* 링크 왼쪽 선입니다. */
+    border-radius: 0; /* 링크 박스 모서리를 둥글게 합니다. */
+    color: #4c3323; /* 링크 글자색입니다. */
+    background: transparent; /* 링크 배경색입니다. */
     font-weight: 700; /* 링크 글자 굵기입니다. */
+}
+
+/* 온라인 체스 사이트 링크 앞에 들어가는 작은 로고 이미지입니다. */
+.link-box a img {
+    width: 18px; /* 로고 이미지의 가로 크기입니다. */
+    height: 18px; /* 로고 이미지의 세로 크기입니다. */
+    border-radius: 3px; /* 로고 이미지 모서리를 살짝 둥글게 합니다. */
+    object-fit: cover; /* 이미지 비율을 유지하면서 정해진 크기에 맞춥니다. */
+    flex-shrink: 0; /* 글자가 길어져도 로고 크기가 줄어들지 않게 합니다. */
 }
 
 /* 사이트 링크에 마우스를 올렸을 때입니다. */
 .link-box a:hover {
-    background: #dfe8d8; /* 마우스를 올렸을 때 배경색입니다. */
+    background: #f3eadc; /* 마우스를 올렸을 때 배경색입니다. */
 }
 
 /* 오른쪽 본문 영역이 grid 안에서 줄어들 수 있게 합니다. */
@@ -238,10 +213,8 @@ main {
 /* 메인페이지 위쪽 큰 배너입니다. */
 .hero {
     min-height: 150px; /* 배너 최소 높이입니다. */
-    border-radius: 8px; /* 배너 모서리를 둥글게 합니다. */
-    background:
-        linear-gradient(135deg, rgba(31, 61, 43, 0.96), rgba(35, 47, 50, 0.92)), /* 배너에 어두운 그라데이션을 입힙니다. */
-        #1f3d2b; /* 그라데이션 아래의 기본 배경색입니다. */
+    border-radius: 4px; /* 배너 모서리를 둥글게 합니다. */
+    background: #6b4a2d; /* 배너 배경색입니다. */
 }
 
 /* 배너 안의 글자 묶음입니다. */
@@ -250,28 +223,28 @@ main {
     flex-direction: column; /* 배너 안의 글자를 위에서 아래로 쌓습니다. */
     justify-content: center; /* 배너 안에서 세로 가운데에 오게 합니다. */
     padding: 20px 34px; /* 배너 안쪽 여백입니다. */
-    color: #fdfcf8; /* 배너 기본 글자색입니다. */
+    color: #fffaf0; /* 배너 기본 글자색입니다. */
 }
 
 /* 작은 영문 라벨처럼 보이는 글자입니다. */
 .eyebrow {
     margin-bottom: 8px; /* 라벨 아래 여백입니다. */
-    color: #b9c878; /* 라벨 글자색입니다. */
-    font-size: 0.78rem; /* 라벨 글자 크기입니다. */
-    font-weight: 900; /* 라벨 글자 굵기입니다. */
+    color: #8a6a3e; /* 라벨 글자색입니다. */
+    font-size: 14px; /* 라벨 글자 크기입니다. */
+    font-weight: 700; /* 라벨 글자 굵기입니다. */
     letter-spacing: 0; /* 글자 사이 간격입니다. */
-    text-transform: uppercase; /* 영어를 대문자로 보이게 합니다. */
+    text-transform: none; /* 영어를 대문자로 보이게 합니다. */
 }
 
 /* 배너의 큰 제목입니다. */
 .hero h1 {
-    font-size: 2rem; /* 배너 제목 글자 크기입니다. */
+    font-size: 30px; /* 배너 제목 글자 크기입니다. */
     line-height: 1.12; /* 배너 제목 줄 간격입니다. */
 }
 
 /* rule.html 같은 서브페이지의 큰 제목입니다. */
 .page-title h1 {
-    font-size: 2rem; /* 체스 소개 배너와 같은 제목 글자 크기입니다. */
+    font-size: 30px; /* 체스 소개 배너와 같은 제목 글자 크기입니다. */
     line-height: 1.12; /* 서브페이지 제목 줄 간격입니다. */
 }
 
@@ -279,8 +252,8 @@ main {
 .hero p {
     max-width: 600px; /* 설명 글자가 너무 길게 퍼지지 않게 제한합니다. */
     margin-top: 8px; /* 설명 문장 위쪽 여백입니다. */
-    color: #e8eee5; /* 설명 문장 글자색입니다. */
-    font-size: 0.92rem; /* 설명 문장 글자 크기입니다. */
+    color: #f3eadc; /* 설명 문장 글자색입니다. */
+    font-size: 14px; /* 설명 문장 글자 크기입니다. */
     line-height: 1.35; /* 설명 문장 줄 간격입니다. */
 }
 
@@ -288,7 +261,8 @@ main {
 .hero .eyebrow,
 .page-title .eyebrow {
     margin-bottom: 5px; /* 배너 라벨 아래 여백입니다. */
-    font-size: 0.72rem; /* 배너 라벨 글자 크기입니다. */
+    color: #ead7b8; /* 배너 라벨 글자색입니다. */
+    font-size: 14px; /* 배너 라벨 글자 크기입니다. */
 }
 
 /* 메인페이지 본문 영역입니다. */
@@ -317,7 +291,7 @@ main {
 .section-title h2,
 .rule-summary h2,
 .rule-list h2 {
-    color: #1f3d2b; /* h2 제목 글자색입니다. */
+    color: #5b3922; /* h2 제목 글자색입니다. */
 }
 
 /* 여러 영역의 본문 문장 색을 한 번에 맞춥니다. */
@@ -326,7 +300,7 @@ main {
 .preview-card p,
 .rule-summary p,
 .rule-list p {
-    color: #4d5b52; /* 본문 문장 글자색입니다. */
+    color: #5e4d3a; /* 본문 문장 글자색입니다. */
 }
 
 /* 체스 소개 박스에서 p 다음에 또 p가 올 때의 간격입니다. */
@@ -339,37 +313,34 @@ main {
     display: grid; /* 이미지 자리들을 grid로 배치합니다. */
     grid-template-columns: repeat(3, minmax(0, 1fr)); /* 같은 너비의 3칸을 만듭니다. */
     gap: 14px; /* 이미지 자리 사이 간격입니다. */
-    padding: 18px; /* 이미지 영역 안쪽 여백입니다. */
+    padding: 14px; /* 이미지 영역 안쪽 여백입니다. */
 }
 
-/* 실제 이미지 대신 보이는 점선 박스입니다. */
+/* 메인 이미지와 설명을 묶는 작은 박스입니다. */
 .image-placeholder {
-    display: grid; /* 안의 글자를 가운데 정렬하기 위해 grid를 씁니다. */
-    place-items: center; /* 글자를 가로와 세로 모두 가운데 정렬합니다. */
-    min-height: 240px; /* 이미지 자리의 최소 높이입니다. */
-    border: 2px dashed #b8c3b6; /* 점선 테두리입니다. */
-    border-radius: 8px; /* 박스 모서리를 둥글게 합니다. */
-    color: #6d7b70; /* 박스 안 글자색입니다. */
-    background:
-        linear-gradient(135deg, rgba(31, 61, 43, 0.06), rgba(212, 227, 121, 0.13)), /* 연한 그라데이션 배경입니다. */
-        #fbfaf5; /* 기본 배경색입니다. */
-    font-weight: 800; /* 박스 안 글자 굵기입니다. */
-    text-align: center; /* 박스 안 글자 가운데 정렬입니다. */
+    display: block; /* 이미지와 설명을 위아래로 배치합니다. */
+    min-height: 0; /* 이미지 자리의 최소 높이입니다. */
+    border: 0; /* 박스 테두리를 없앱니다. */
+    border-radius: 0; /* 박스 모서리를 둥글게 합니다. */
+    color: #5e4d3a; /* 박스 안 글자색입니다. */
+    background: transparent; /* 기본 배경색입니다. */
+    font-weight: 700; /* 박스 안 글자 굵기입니다. */
+    text-align: left; /* 박스 안 글자 왼쪽 정렬입니다. */
 }
 
-/* 학습 카테고리 박스의 추가 위쪽 여백을 없앱니다. */
-.category-section {
-    margin-top: 0; /* 위쪽 바깥 여백을 없앱니다. */
+.image-placeholder img {
+    width: 100%; /* 이미지가 박스 너비를 꽉 채우게 합니다. */
+    height: 170px; /* 메인페이지 이미지 섹션의 세로 크기입니다. 숫자를 키우면 더 길어집니다. */
+    border: 1px solid #d6c8b2; /* 이미지 테두리입니다. */
+    border-radius: 3px; /* 이미지 모서리를 살짝 둥글게 합니다. */
+    object-fit: cover; /* 이미지 비율을 유지하면서 칸을 채웁니다. */
 }
 
-/* 학습 카테고리 문단과 제목 사이 간격입니다. */
-.category-section p {
-    margin-top: 8px; /* 문단 위쪽 여백입니다. */
-}
-
-/* 학습 미리보기 전체 영역입니다. */
-.preview-section {
-    margin-top: 36px; /* 위쪽 영역과의 간격입니다. */
+.image-placeholder span {
+    display: block;
+    margin-top: 8px;
+    color: #5e4d3a;
+    font-size: 15px;
 }
 
 /* 섹션 제목 묶음입니다. */
@@ -377,48 +348,14 @@ main {
     margin-bottom: 16px; /* 제목 묶음 아래 여백입니다. */
 }
 
-/* 학습 미리보기 카드들을 배치하는 grid입니다. */
-.preview-grid {
-    display: grid; /* 카드들을 grid로 배치합니다. */
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 같은 너비의 2칸을 만듭니다. */
-    gap: 18px; /* 카드 사이 간격입니다. */
-}
-
-/* 학습 미리보기 카드 하나입니다. */
-.preview-card {
-    display: grid; /* 카드 안에서 이미지와 글자를 grid로 배치합니다. */
-    grid-template-columns: 150px minmax(0, 1fr); /* 왼쪽 이미지는 150px, 오른쪽 글자는 남은 공간입니다. */
-    min-height: 176px; /* 카드 최소 높이입니다. */
-    overflow: hidden; /* 이미지나 내용이 카드 밖으로 넘치면 잘라냅니다. */
-}
-
-/* 학습 미리보기 카드의 이미지입니다. */
-.preview-card img {
-    width: 100%; /* 이미지 너비를 이미지 칸에 맞춥니다. */
-    height: 100%; /* 이미지 높이를 카드 높이에 맞춥니다. */
-    object-fit: cover; /* 이미지 비율을 유지하면서 칸을 꽉 채웁니다. */
-    background: #e5e8dd; /* 이미지가 늦게 뜰 때 보이는 배경색입니다. */
-}
-
-/* 학습 미리보기 카드 안의 글자 영역입니다. */
-.preview-card div {
-    padding: 18px; /* 글자 영역 안쪽 여백입니다. */
-}
-
 /* 카드와 규칙 목록에서 작은 분류 라벨로 쓰이는 span입니다. */
-.preview-card span,
+/* .preview-card span,
 .rule-list span {
-    color: #6e7d38; /* 작은 라벨 글자색입니다. */
-    font-size: 0.78rem; /* 작은 라벨 글자 크기입니다. */
-    font-weight: 900; /* 작은 라벨 글자 굵기입니다. */
-}
+    color: #8a6a3e; /* 작은 라벨 글자색입니다. */
+    /* font-size: 12px; /* 작은 라벨 글자 크기입니다. */
+    /*category-section: 800; /* 작은 라벨 글자 굵기입니다. */
+/*}  */
 
-/* 학습 미리보기 카드의 h3 제목입니다. */
-.preview-card h3 {
-    margin: 5px 0 8px; /* 위 5px, 좌우 0, 아래 8px 여백입니다. */
-    color: #1f2f24; /* 카드 제목 글자색입니다. */
-    font-size: 1.08rem; /* 카드 제목 글자 크기입니다. */
-}
 
 /* 서브페이지 상단 제목 박스입니다. */
 .page-title {
@@ -427,17 +364,18 @@ main {
     justify-content: center; /* 체스 소개 배너처럼 내용을 세로 가운데 정렬합니다. */
     min-height: 150px; /* 체스 소개 배너와 같은 최소 높이입니다. */
     padding: 20px 34px; /* 체스 소개 배너와 같은 안쪽 여백입니다. */
-    border-radius: 8px; /* 제목 박스 모서리를 둥글게 합니다. */
-    color: #fdfcf8; /* 제목 박스 기본 글자색입니다. */
-    background: #1f3d2b; /* 제목 박스 배경색입니다. */
+    border-left: 8px solid #3f5b37; /* 제목 박스 왼쪽 강조선입니다. */
+    border-radius: 4px; /* 제목 박스 모서리를 둥글게 합니다. */
+    color: #fffaf0; /* 제목 박스 기본 글자색입니다. */
+    background: #6b4a2d; /* 제목 박스 배경색입니다. */
 }
 
 /* 서브페이지 제목 아래 설명 문장입니다. */
 .page-title p {
     max-width: 600px; /* 체스 소개 배너와 같은 설명 문장 최대 너비입니다. */
     margin-top: 8px; /* 체스 소개 배너와 같은 설명 문장 위쪽 여백입니다. */
-    color: #e8eee5; /* 체스 소개 배너와 같은 설명 문장 글자색입니다. */
-    font-size: 0.92rem; /* 체스 소개 배너와 같은 설명 문장 글자 크기입니다. */
+    color: #f3eadc; /* 체스 소개 배너와 같은 설명 문장 글자색입니다. */
+    font-size: 14px; /* 체스 소개 배너와 같은 설명 문장 글자 크기입니다. */
     line-height: 1.35; /* 체스 소개 배너와 같은 설명 문장 줄 간격입니다. */
 }
 
@@ -455,8 +393,18 @@ main {
     width: 100%; /* 이미지 너비를 칸에 맞춥니다. */
     height: 100%; /* 이미지 높이를 칸에 맞춥니다. */
     min-height: 260px; /* 이미지 최소 높이입니다. */
-    border-radius: 8px; /* 이미지 모서리를 둥글게 합니다. */
+    border-radius: 4px; /* 이미지 모서리를 둥글게 합니다. */
     object-fit: cover; /* 이미지 비율을 유지하면서 칸을 꽉 채웁니다. */
+}
+
+/* 기본 전략 페이지의 대표 사진만 작게 보이도록 조절합니다. */
+.strategy-layout {
+    grid-template-columns: minmax(170px, 0.57fr) minmax(0, 1.43fr); /* 사진 칸을 기존의 약 2/3 정도로 줄입니다. */
+}
+
+/* 기본 전략 페이지 대표 사진의 높이를 기존 260px의 약 2/3 정도로 줄입니다. */
+.strategy-layout img {
+    min-height: 173px; /* 숫자를 키우면 사진 높이가 커지고, 줄이면 더 작아집니다. */
 }
 
 /* 규칙 페이지의 요약 설명 박스입니다. */
@@ -476,30 +424,40 @@ main {
 .rule-list {
     display: grid; /* 규칙 카드를 grid로 배치합니다. */
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* 같은 너비의 2칸을 만듭니다. */
-    gap: 18px; /* 규칙 카드 사이 간격입니다. */
+    gap: 14px; /* 규칙 카드 사이 간격입니다. */
     margin-top: 24px; /* 위쪽 내용과의 간격입니다. */
 }
 
 /* 규칙 설명 카드 하나입니다. */
 .rule-list article {
-    min-height: 180px; /* 카드 최소 높이입니다. */
-    padding: 24px; /* 카드 안쪽 여백입니다. */
+    min-height: 160px; /* 카드 최소 높이입니다. */
+    padding: 20px; /* 카드 안쪽 여백입니다. */
+}
+
+.piece-move-image {
+    width: 100%;
+    height: 190px;
+    margin-bottom: 14px;
+    border: 1px solid #d6c8b2;
+    border-radius: 4px;
+    background: #fffdf8;
+    object-fit: contain;
 }
 
 /* 규칙 설명 카드 제목입니다. */
 .rule-list h2 {
     margin: 5px 0 8px; /* 위 5px, 좌우 0, 아래 8px 여백입니다. */
-    font-size: 1.2rem; /* 규칙 카드 제목 글자 크기입니다. */
+    font-size: 20px; /* 규칙 카드 제목 글자 크기입니다. */
 }
 
 /* 페이지 맨 아래 푸터입니다. */
 .site-footer {
     padding: 28px 24px; /* 푸터 안쪽 여백입니다. */
-    border-top: 1px solid #d9ded3; /* 푸터 위쪽 경계선입니다. */
-    color: #526158; /* 푸터 글자색입니다. */
-    background: #fdfcf8; /* 푸터 배경색입니다. */
+    border-top: 1px solid #cdbb9f; /* 푸터 위쪽 경계선입니다. */
+    color: #6c5a45; /* 푸터 글자색입니다. */
+    background: #fbf6ec; /* 푸터 배경색입니다. */
     text-align: center; /* 푸터 글자를 가운데 정렬합니다. */
-    font-size: 0.92rem; /* 푸터 글자 크기입니다. */
+    font-size: 14px; /* 푸터 글자 크기입니다. */
 }
 
 /* 푸터에서 p 다음에 또 p가 올 때의 간격입니다. */
@@ -511,13 +469,15 @@ main {
 @media (max-width: 900px) {
     /* 헤더 안쪽 요소를 위아래로 배치합니다. */
     .header-inner {
-        align-items: flex-start; /* 헤더 내용을 왼쪽에 맞춥니다. */
-        flex-direction: column; /* 로고와 메뉴를 세로로 쌓습니다. */
+        grid-template-columns: 1fr; /* 로고와 메뉴를 한 줄씩 세로로 쌓습니다. */
+        justify-items: center; /* 헤더 내용을 가운데에 맞춥니다. */
     }
 
-    /* 작은 화면에서는 메뉴를 왼쪽 정렬합니다. */
+    /* 작은 화면에서도 메뉴를 가운데 정렬합니다. */
     .main-nav {
-        justify-content: flex-start; /* 메뉴를 왼쪽으로 정렬합니다. */
+        justify-content: center; /* 메뉴를 가운데로 정렬합니다. */
+        gap: 18px; /* 작은 화면에서는 메뉴 간격을 조금 줄입니다. */
+        transform: none; /* 작은 화면에서는 메뉴가 화면 밖으로 밀리지 않게 이동을 없앱니다. */
     }
 
     /* 사이드바와 본문을 한 줄씩 세로로 쌓습니다. */
@@ -538,7 +498,7 @@ main {
     /* 작은 화면에서 배너 제목 크기를 줄입니다. */
     .hero h1,
     .page-title h1 {
-        font-size: 1.8rem; /* 배너 제목 글자 크기입니다. */
+        font-size: 28px; /* 배너 제목 글자 크기입니다. */
     }
 }
 
@@ -597,13 +557,13 @@ main {
     /* 아주 작은 화면에서 배너 제목을 더 줄입니다. */
     .hero h1,
     .page-title h1 {
-        font-size: 1.55rem; /* 배너 제목 글자 크기입니다. */
+        font-size: 24px; /* 배너 제목 글자 크기입니다. */
     }
 
     /* 아주 작은 화면에서 배너 설명 글자 크기입니다. */
     .hero p,
     .page-title p {
-        font-size: 0.98rem; /* 배너 설명 글자 크기입니다. */
+        font-size: 16px; /* 배너 설명 글자 크기입니다. */
     }
 
     /* 학습 카드는 이미지와 글자를 위아래로 쌓습니다. */
@@ -616,8 +576,8 @@ main {
         height: 180px; /* 작은 화면에서 카드 이미지 높이입니다. */
     }
 
-    /* 메인 이미지 자리 높이를 줄입니다. */
-    .image-placeholder {
-        min-height: 160px; /* 작은 화면에서 이미지 자리 최소 높이입니다. */
+    /* 메인 이미지 높이를 줄입니다. */
+    .image-placeholder img {
+        height: 155px; /* 작은 화면에서 이미지 높이입니다. */
     }
 }
